@@ -47,12 +47,3 @@ jobs:
       - name: Push Docker Image to GHCR
         run: |
           docker push ${{ env.IMAGE_NAME }}
-
-      - name: Checkout K8s code
-        uses: actions/checkout@v4
-        with:
-          repository: '${{values.destination.owner + "/" + values.destination.repo}}'
-
-      - name: Change Image tag
-        run: |
-          yq -i '.images[0].newTag = "${GITHUB_SHA::7}"' overlays/dev/kustomization.yaml

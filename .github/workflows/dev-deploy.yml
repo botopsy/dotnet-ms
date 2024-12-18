@@ -26,7 +26,7 @@ jobs:
       - name: Checkout K8s code
         uses: actions/checkout@v4
         with:
-          repository: '${{values.destination.owner + "/" + values.destination.repo}}'
+          repository: 'botopsy/dotnet-ms-k8s'
           token: ${{ secrets.GH_ACTION_TOKEN }}
           
       - name: Change Image tag
