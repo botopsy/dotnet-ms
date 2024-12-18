@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SmzJ1g/X8wE=",
+  "success": true,
+  "projectFilePath": "/Users/vidojeg/Developer/backstage/software-catalog/dotnet-ms/dotnet-ms.csproj",
+  "expectedPackageFiles": [
+    "/Users/vidojeg/.nuget/packages/microsoft.aspnetcore.openapi/9.0.0/microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+    "/Users/vidojeg/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

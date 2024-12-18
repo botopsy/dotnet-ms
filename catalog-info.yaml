@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "dotnet-ms"
+  description: ".Net Microservice"
+  tags:
+    - microservice
+    - go
+  annotations:
+    github.com/project-slug: botopsy/dotnet-ms
+    backstage.io/techdocs-ref: dir:.
+    argocd/app-name: "dotnet-ms"
+    backstage.io/kubernetes-id: "dotnet-ms"
+  links:
+    - url: https://github.com/botopsy/dotnet-ms-k8s
+      title: View K8s repo
+      icon: github
+    - url: https://dotnet-ms-dev.127.0.0.1.sslip.io
+      title: App Link Dev
+      icon: externalLink
+    - url: https://dotnet-ms-qa.127.0.0.1.sslip.io
+      title: App Link QA
+      icon: externalLink
+    - url: https://dotnet-ms.127.0.0.1.sslip.io
+      title: App Link Prod
+      icon: externalLink
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "group:default/infra"

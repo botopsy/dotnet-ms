@@ -1,0 +1,8 @@
+site_name: "dotnet-ms"
+site_description: ".Net Microservice"
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

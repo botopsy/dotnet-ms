@@ -1,0 +1,58 @@
+name: Build and Push Docker Image to GHCR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up .Net
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8
+
+      - name: Build .Net App
+        run: |
+          dotnet build
+
+      - name: Test with the dotnet CLI
+        run: |
+          dotnet test
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Build and Tag Docker Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository }}:${GITHUB_SHA::7}
+          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+          docker build -t $IMAGE_NAME .
+
+      - name: Push Docker Image to GHCR
+        run: |
+          docker push ${{ env.IMAGE_NAME }}
+
+      - name: Checkout K8s code
+        uses: actions/checkout@v4
+        with:
+          repository: '${{values.destination.owner + "/" + values.destination.repo}}'
+
+      - name: Change Image tag
+        run: |
+          yq -i '.images[0].newTag = "${GITHUB_SHA::7}"' overlays/dev/kustomization.yaml

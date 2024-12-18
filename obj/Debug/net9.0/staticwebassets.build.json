@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "2HWErz7G0LE8ItTJeiwCzxKGRcNma+3Otbi7WU+5PHM=",
+  "Source": "dotnet-ms",
+  "BasePath": "_content/dotnet-ms",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
