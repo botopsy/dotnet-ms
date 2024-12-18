@@ -5,7 +5,8 @@ metadata:
   description: ".Net Microservice"
   tags:
     - microservice
-    - go
+    - dotnet
+    - .Net
   annotations:
     github.com/project-slug: botopsy/dotnet-ms
     backstage.io/techdocs-ref: dir:.
